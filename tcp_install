@@ -1,0 +1,10 @@
+#!/bin/bash
+sudo apt install git debhelper build-essential
+sudo apt install python3-pyqt5 python3-stem
+git clone https://github.com/firdavis/tor-control-panel.git
+cd tor-control-panel
+dpkg-buildpackage -b
+cd -
+ls *deb > package-version
+sudo dpkg -i $(cat package-version)
+tor-control-panel

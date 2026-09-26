@@ -3,16 +3,13 @@
 ## Install build dependencies
 sudo apt install git debhelper build-essential
 
-## Install missing pakage dependencies
-sudo apt install python3-pyqt5 python3-stem
-
 ## Build and intall the pagckage
 git clone https://github.com/firdavis/tor-control-panel.git
 cd tor-control-panel
 dpkg-buildpackage -b
 cd -
 ls *deb > package-version
-sudo dpkg -i $(cat package-version)
+sudo apt install ./$(cat package-version) -y
 
 ## Run tor-control-panel which will complete
 ## it's own congiguration

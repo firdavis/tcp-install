@@ -6,7 +6,7 @@ sudo apt install git debhelper build-essential
 ## Build and install the package.
 git clone https://github.com/firdavis/tor-control-panel.git
 cd tor-control-panel
-dpkg-buildpackage -b
+dpkg-buildpackage -b --no-sign
 cd -
 ls tor-control-panel*.deb > package-version
 sudo apt install -y ./$(cat package-version)
